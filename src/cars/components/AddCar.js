@@ -1,5 +1,5 @@
 import React from 'react';
-import CarForm from './BookForm';
+import CarForm from '../forms/CarForm';
 
 const AddCar = () => {
   const handleOnSubmit = (car) => {
