@@ -1,12 +1,12 @@
 import './CarContainer.css'
 
-const CarContainer = (car) => {
+const CarContainer = (props) => {
     return (
       <div className="car-container">
-          <h4>"Car Plate"</h4>
+          <h4>{props.car.plate}</h4>
           <p className="space-around">
-              <span >"Car Manufacturer"</span>
-              <span >"Car Assured"</span>
+              <span >{props.car.manufacturer}</span>
+              <span >{props.car.assured.toString()}</span>
           </p>
       </div>
     );
