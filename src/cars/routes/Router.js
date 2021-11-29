@@ -5,6 +5,7 @@ import CarsList from "../components/CarsList";
 import CarById from "../components/CarById";
 import CarsByManufacturer from "../components/CarsByManufacturer";
 import UpdateCar from "../components/UpdateCar";
+import RemoveCar from "../components/RemoveCar";
 
 const AppRouter = () => {
   return (
@@ -15,6 +16,7 @@ const AppRouter = () => {
         <Route path="/carsBy/:manufacturer" element={<CarsByManufacturer />} />
         <Route path="/updateCar/:id" element={<UpdateCar />} />
         <Route path="/add" element={<AddCar />} />
+        <Route path="/delete/:id" element={<RemoveCar />} />
       </Routes>
     </Router>
   );

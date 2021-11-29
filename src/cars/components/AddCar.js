@@ -61,7 +61,8 @@ const AddCar = () => {
             type="text"
             name="plate"
             placeholder={car.plate}
-            onChange={(e) => plateChange(e.target.value)}
+            onKeyUp={(e) => plateChange(e.target.value)}
+            onKeyDown={(e) => plateChange(e.target.value)}
           />
         </label>
         <label>
@@ -70,7 +71,8 @@ const AddCar = () => {
             type="text"
             name="manufacturer"
             placeholder={car.manufacturer}
-            onChange={(e) => manufacturerChange(e.target.value)}
+            onKeyUp={(e) => manufacturerChange(e.target.value)}
+            onKeyDown={(e) => manufacturerChange(e.target.value)}
           />
         </label>
         <input type="submit" value="Submit" />
