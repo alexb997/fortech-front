@@ -24,6 +24,21 @@ function UpdateCar(){
             <CarContainer car={car}/>
             <hr/>
             <h3>Input form</h3>
+            <form>
+                <label>
+                    Label:
+                    <input type="text" name="label" />
+                </label>
+                <label>
+                    Manufacturer:
+                    <input type="text" name="manufacturer" />
+                </label>
+                <label>
+                    Assured:
+                    <input type="text" name="assured" />
+                </label>
+                <input type="submit" value="Submit" />
+            </form>
             <h3>Button of submit</h3>
         </div>
     );
