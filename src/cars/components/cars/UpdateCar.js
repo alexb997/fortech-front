@@ -11,7 +11,7 @@ function UpdateCar() {
   const [assured, setAssured] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/cars/" + id)
+    fetch("http://localhost:8080/cars/cars/" + id)
       .then((response) => response.json())
       .then((data) => {
         setIsLoading(false);

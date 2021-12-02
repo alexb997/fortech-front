@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import CarContainer from "./CarContainer";
 
-function RemoveCar() {
+function RemoveClient() {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  const [car, setCar] = useState({});
+  const [client, setClient] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:8080/cars/cars/" + id)
+    fetch("http://localhost:8080/clients/clients" + id)
       .then((response) => response.json())
       .then((data) => {
         setIsLoading(false);
-        setCar(data);
+        setClient(data);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -25,7 +24,7 @@ function RemoveCar() {
         "Content-Type": "application/json",
       },
     };
-    fetch("http://localhost:8080/cars/cars/" + id, requestOptions).then(
+    fetch("http://localhost:8080/clients/clients" + id, requestOptions).then(
       (response) => {
         console.log(response);
       }
@@ -36,10 +35,10 @@ function RemoveCar() {
     <div>
       <h3>Are you sure? </h3>
       {isLoading && <p>Loading...</p>}
-      <CarContainer car={car} />
+      <span>Username: {client.username}</span>
       <input type="button" onClick={confirmRemoval} value="YES" />
     </div>
   );
 }
 
-export default RemoveCar;
+export default RemoveClient;
