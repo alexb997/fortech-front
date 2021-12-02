@@ -31,7 +31,7 @@ function UpdateClient() {
         carID: carID,
       }),
     };
-    fetch("http://localhost:8080/clients/clients" + id, requestOptions)
+    fetch("http://localhost:8080/clients/clients/" + id, requestOptions)
       .then((response) => response.json())
       .then((data) => setClient(data));
   };

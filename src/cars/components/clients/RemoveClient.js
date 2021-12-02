@@ -7,7 +7,7 @@ function RemoveClient() {
   const [client, setClient] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:8080/clients/clients" + id)
+    fetch("http://localhost:8080/clients/clients/" + id)
       .then((response) => response.json())
       .then((data) => {
         setIsLoading(false);
@@ -24,7 +24,7 @@ function RemoveClient() {
         "Content-Type": "application/json",
       },
     };
-    fetch("http://localhost:8080/clients/clients" + id, requestOptions).then(
+    fetch("http://localhost:8080/clients/clients/" + id, requestOptions).then(
       (response) => {
         console.log(response);
       }
