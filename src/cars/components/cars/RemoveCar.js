@@ -25,7 +25,7 @@ function RemoveCar() {
         "Content-Type": "application/json",
       },
     };
-    fetch("http://localhost:8080/api/cars/" + id, requestOptions).then(
+    fetch("http://localhost:8080/cars/cars/" + id, requestOptions).then(
       (response) => {
         console.log(response);
       }

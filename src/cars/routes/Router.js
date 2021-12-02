@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AddCar from "../components/AddCar";
+import AddCar from "../components/cars/AddCar";
 import CarsList from "../components/CarsList";
 import CarById from "../components/CarById";
 import CarsByManufacturer from "../components/CarsByManufacturer";
@@ -17,6 +17,9 @@ const AppRouter = () => {
         <Route path="/updateCar/:id" element={<UpdateCar />} />
         <Route path="/add" element={<AddCar />} />
         <Route path="/delete/:id" element={<RemoveCar />} />
+        <Route path="/clients" element={<ClientsList />} />
+        <Route path="/clients/add" element={<AddClient />} />
+        <Route path="/clients/remove/:id" element={<RemoveClient />} />
       </Routes>
     </Router>
   );

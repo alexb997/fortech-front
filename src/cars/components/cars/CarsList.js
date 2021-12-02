@@ -6,7 +6,7 @@ function CarsList(){
   const [carsList,setCarsList] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/cars")
+    fetch("http://localhost:8080/cars/cars")
     .then(response => response.json())
     .then((data) => {
       setIsLoading(false);
