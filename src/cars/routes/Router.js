@@ -15,11 +15,11 @@ const AppRouter = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/cars" element={<CarsList />} />
+        {/* <Route path="/cars" element={<CarsList />} />
         <Route path="/cars/:id" element={<CarById />} />
         <Route path="/carsBy/:manufacturer" element={<CarsByManufacturer />} />
         <Route path="/updateCar/:id" element={<UpdateCar />} />
-        <Route path="/add" element={<AddCar />} />
+        <Route path="/add" element={<AddCar />} /> */}
         <Route path="/delete/:id" element={<RemoveCar />} />
         <Route path="/clients" element={<ClientsList />} />
         <Route path="/clients/add" element={<AddClient />} />

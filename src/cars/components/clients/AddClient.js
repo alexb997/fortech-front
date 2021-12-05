@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import AddCar from "../cars/AddCar";
 
 const AddClient = () => {
   const [client, setClient] = useState({});
@@ -55,6 +56,9 @@ const AddClient = () => {
       <hr />
       <h3>Client to be added</h3>
       <p>Username: {username}</p>
+      <h3> Insert car(s) </h3>
+      <h5> Pick number of cars </h5>
+      <AddCar />
     </div>
   );
 };

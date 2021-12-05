@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CarContainer from "../cars/CarContainer";
 
 function ClientsList() {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,6 +23,9 @@ function ClientsList() {
         <div key={index}>
           <p>Username: {c.username}</p>
           <p>CarID: {c.carID}</p>
+          {c.ownedCars.forEach((element) => {
+            <CarContainer car={element} />;
+          })}
         </div>
       ))}
     </div>

@@ -16,19 +16,19 @@ const AddCar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        plate: plate,
-        manufacturer: manufacturer,
-      }),
-    };
-    fetch("http://localhost:8080/cars/cars/", requestOptions)
-      .then((response) => response.json())
-      .then((data) => setCar(data));
+    // const requestOptions = {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     plate: plate,
+    //     manufacturer: manufacturer,
+    //   }),
+    // };
+    // fetch("http://localhost:8080/cars/cars/", requestOptions)
+    //   .then((response) => response.json())
+    //   .then((data) => setCar(data));
   };
   const manufacturerChange = (e) => {
     setManufacturer(e);
