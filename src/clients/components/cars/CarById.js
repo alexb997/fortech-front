@@ -19,7 +19,6 @@ function CarById() {
 
   return (
     <div>
-      <h3>Api call to backend</h3>
       {isLoading && <p>Loading...</p>}
       <CarContainer car={car} />
     </div>

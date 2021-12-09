@@ -1,0 +1,23 @@
+.creator-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.insurance-container {
+  padding: 1%;
+  margin: 1%;
+  border: solid 2px;
+  border-radius: 20%;
+}
+.insurance-container .description {
+  display: flex;
+  flex-direction: column;
+}
+
+.insurance-container .title {
+  font-style: italic;
+}
+
+.insurance-container .period {
+  color: yellowgreen;
+}

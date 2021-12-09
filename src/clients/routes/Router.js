@@ -10,17 +10,20 @@ import ClientsList from "../components/clients/ClientsList";
 import AddClient from "../components/clients/AddClient";
 import RemoveClient from "../components/clients/RemoveClient";
 import UpdateClient from "../components/clients/UpdateClient";
+import AssuranceCreator from "../components/assurances/AssuranceCreator";
+import AssuranceList from "../components/assurances/AssuranceList";
+import Home from "../components/home/Home.js";
 
 const AppRouter = () => {
   return (
     <Router>
       <Routes>
-        {/* <Route path="/cars" element={<CarsList />} />
-        <Route path="/cars/:id" element={<CarById />} />
-        <Route path="/carsBy/:manufacturer" element={<CarsByManufacturer />} />
-        <Route path="/updateCar/:id" element={<UpdateCar />} />
-        <Route path="/add" element={<AddCar />} /> */}
-        <Route path="/delete/:id" element={<RemoveCar />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/insurances" element={<AssuranceList />} />
+        {/* <Route path="/assurance/:id" element={<AssurancePicker />} /> */}
+        {/* <Route path="/update-assurance-plan/:id" element={<AssuranceUpdater />} /> */}
+        <Route path="/add-insurance-plan" element={<AssuranceCreator />} />
+        {/* <Route path="/remove-assurance-plan/:id" element={<AssuranceRemover />} /> */}
         <Route path="/clients" element={<ClientsList />} />
         <Route path="/clients/add" element={<AddClient />} />
         <Route path="/clients/remove/:id" element={<RemoveClient />} />

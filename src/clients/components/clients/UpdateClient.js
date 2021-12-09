@@ -5,8 +5,10 @@ function UpdateClient() {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [client, setClient] = useState({});
-  const [carID, setCarID] = useState();
+  const [plate, setPlate] = useState("");
+  const [manufacturer, setManufacturer] = useState("");
   const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
 
   useEffect(() => {
     fetch("http://localhost:8080/clients/clients/" + id)
@@ -28,7 +30,17 @@ function UpdateClient() {
       body: JSON.stringify({
         id: client.id,
         username: username,
-        carID: carID,
+        password: password,
+        ownedCars: [
+          {
+            plate: plate,
+            manufacturer: manufacturer,
+          },
+          {
+            plate: manufacturer,
+            manufacturer: plate,
+          },
+        ],
       }),
     };
     fetch("http://localhost:8080/clients/clients/" + id, requestOptions)
@@ -58,12 +70,28 @@ function UpdateClient() {
           />
         </label>
         <label>
-          CarID:
+          Password:
+          <input
+            type="password"
+            name="password"
+            placeholder={client.password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </label>
+        <label>
+          Car Plate:
           <input
             type="text"
-            name="carID"
-            placeholder={client.carID}
-            onChange={(e) => setCarID(e.target.value)}
+            name="plate"
+            onChange={(e) => setPlate(e.target.value)}
+          />
+        </label>
+        <label>
+          Car Manufacturer:
+          <input
+            type="text"
+            name="manufacturer"
+            onChange={(e) => setManufacturer(e.target.value)}
           />
         </label>
         <input type="submit" value="Submit" />

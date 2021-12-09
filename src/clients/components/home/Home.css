@@ -1,0 +1,16 @@
+.home {
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about-us b {
+  color: blue;
+}
+
+.contact {
+  background-color: rgba(0, 0, 0, 0.527);
+  color: white;
+}
+.contact .data {
+  color: aqua;
+}
