@@ -6,12 +6,13 @@ import "./Clients.css";
 function ClientsList() {
   const [isLoading, setIsLoading] = useState(true);
   const [clientsList, setClientsList] = useState([]);
-  const [clientsPerPage, setClientsPerPage] = useState(2);
+  const [clientsPerPage, setClientsPerPage] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState();
   const [totalElements, setTotalElements] = useState();
   const [show, setShow] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
+  const [username, setUsername] = useState("");
 
   useEffect(async () => {
     await fetch(
@@ -23,7 +24,7 @@ function ClientsList() {
       .then((response) => response.json())
       .then((data) => {
         setIsLoading(false);
-        setClientsList(data.clients);
+        setClientsList(data.items);
         setTotalPages(data.totalPages ? data.totalPages : 0);
         setTotalElements(data.totalItems ? data.totalItems : 0);
         setIsUpdating(false);
@@ -91,6 +92,8 @@ function ClientsList() {
           <div className="client-container" key={index}>
             <p>Username: {c.username}</p>
             <p>Passowrd: {c.password}</p>
+            <p>Address: {c.address}</p>
+            <p>Phone: {c.phone}</p>
             <p>
               Owned cars documented:{" "}
               {c.ownedCars === null ? "0" : c.ownedCars.length}
