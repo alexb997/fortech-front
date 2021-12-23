@@ -1,20 +1,35 @@
 import { useEffect, useState, useHistory } from "react";
+import Alert from "react-bootstrap/Alert";
 
 import "./Clients.css";
 
 function ClientsList() {
   const [isLoading, setIsLoading] = useState(true);
   const [clientsList, setClientsList] = useState([]);
+  const [clientsPerPage, setClientsPerPage] = useState(2);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState();
+  const [totalElements, setTotalElements] = useState();
+  const [show, setShow] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
 
-  useEffect(() => {
-    fetch("http://localhost:8080/clients/clients")
+  useEffect(async () => {
+    await fetch(
+      "http://localhost:8080/clients/clients?page=" +
+        (currentPage - 1) +
+        "&size=" +
+        clientsPerPage
+    )
       .then((response) => response.json())
       .then((data) => {
         setIsLoading(false);
-        setClientsList(data);
+        setClientsList(data.clients);
+        setTotalPages(data.totalPages ? data.totalPages : 0);
+        setTotalElements(data.totalItems ? data.totalItems : 0);
+        setIsUpdating(false);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [isUpdating]);
 
   const confirmRemoval = (id) => {
     const requestOptions = {
@@ -32,9 +47,44 @@ function ClientsList() {
     );
   };
 
+  const prevPage = () => {
+    if (currentPage - 1 < 1) {
+      setShow(true);
+    } else {
+      setCurrentPage(currentPage - 1);
+      setIsUpdating(true);
+    }
+  };
+
+  const nextPage = () => {
+    if (currentPage + 1 > totalPages) {
+      setShow(true);
+    } else {
+      setCurrentPage(currentPage + 1);
+      setIsUpdating(true);
+    }
+  };
+
   return (
     <div>
+      <Alert show={show} variant="success">
+        <Alert.Heading>YOU SHALL NOT PASS!! </Alert.Heading>
+        <p>
+          probably should just disable button in this case but wanna see a alarm
+          working.
+        </p>
+        <hr />
+        <div className="d-flex justify-content-end">
+          <button onClick={() => setShow(false)} variant="outline-success">
+            Got it
+          </button>
+        </div>
+      </Alert>
+      <p>
+        Total Pages = {totalPages} with a total elements of {totalElements}
+      </p>
       <button>Delete All</button>
+      <h2>Pagination-Hard coded</h2>
       {isLoading && <p>Loading...</p>}
       {clientsList.length != 0 ? (
         clientsList.map((c, index) => (
@@ -47,7 +97,7 @@ function ClientsList() {
             </p>
             <span classname="actions">
               <button>Cars List</button>
-              <button></button>
+              {/* <button></button> */}
               <button onClick={() => confirmRemoval(c.id)}>Delete</button>
             </span>
           </div>
@@ -55,6 +105,25 @@ function ClientsList() {
       ) : (
         <h3>No clients documented</h3>
       )}
+      <span>
+        <button onClick={() => prevPage()}>Prev..</button>
+        <span>{currentPage}</span>
+        <button onClick={() => nextPage()}>Next..</button>
+        <br />
+        Out of {totalPages} pages
+        <br />
+        Clients per page:
+        <select
+          defaultValue={2}
+          value="clientsPerPage"
+          onChange={() => nextPage()}
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        Out of {totalElements}
+      </span>
     </div>
   );
 }
