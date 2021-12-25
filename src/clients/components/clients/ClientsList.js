@@ -6,7 +6,7 @@ import "./Clients.css";
 function ClientsList() {
   const [isLoading, setIsLoading] = useState(true);
   const [clientsList, setClientsList] = useState([]);
-  const [clientsPerPage, setClientsPerPage] = useState(1);
+  const [clientsPerPage, setClientsPerPage] = useState(2);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState();
   const [totalElements, setTotalElements] = useState();
@@ -66,6 +66,11 @@ function ClientsList() {
     }
   };
 
+  const handleChange = (value) => {
+    setClientsPerPage(value);
+    setIsUpdating(true);
+  };
+
   return (
     <div>
       <Alert show={show} variant="success">
@@ -117,9 +122,8 @@ function ClientsList() {
         <br />
         Clients per page:
         <select
-          defaultValue={2}
-          value="clientsPerPage"
-          onChange={() => nextPage()}
+          value={clientsPerPage}
+          onChange={(e) => handleChange(e.target.value)}
         >
           <option value="1">1</option>
           <option value="2">2</option>
