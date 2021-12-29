@@ -3,12 +3,19 @@
   justify-content: space-between;
 }
 
+.about-us {
+  text-align: left;
+  background: url(./car.jpg);
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
 .about-us b {
   color: blue;
 }
 
 .contact {
-  background-color: rgba(0, 0, 0, 0.527);
+  background-color: rgba(27, 27, 27, 0.527);
   color: white;
 }
 .contact .data {

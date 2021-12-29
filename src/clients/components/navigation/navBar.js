@@ -7,12 +7,15 @@ import {
   Offcanvas,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import * as Icon from "react-bootstrap-icons";
 
 function NavBar() {
   return (
     <Navbar expand={false}>
       <Container fluid>
-        <Navbar.Brand href="/">React Management App</Navbar.Brand>
+        <Navbar.Brand href="/">
+          <Icon.HouseFill size={37} />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="offcanvasNavbar" />
         <Navbar.Offcanvas
           id="offcanvasNavbar"
@@ -20,9 +23,7 @@ function NavBar() {
           placement="end"
         >
           <Offcanvas.Header closeButton>
-            <Offcanvas.Title id="offcanvasNavbarLabel">
-              Offcanvas
-            </Offcanvas.Title>
+            <Offcanvas.Title id="offcanvasNavbarLabel">Routing</Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">

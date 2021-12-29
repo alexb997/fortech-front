@@ -12,8 +12,8 @@ function AboutUs() {
       </p>
       <p>
         As time passed still having no idea as to what this project should do i
-        just randomply put information around and played with it hoping for a
-        idea to pop out
+        just randomly <br /> put information around and played with it hoping
+        for a idea to pop out
       </p>
       <p>
         In the end nothing really came to mind and randomly searched car related
