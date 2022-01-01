@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import AppRouter from "./clients/routes/Router";
-import NavBar from "./clients/components/navigation/navBar";
+import { doLogin, doLogout } from "./actions/auth";
+import NavBar from "./navigation/navBar";
 import "./App.css";
+import { connect } from "react-redux";
 
-const Header = () => {
-  return (
-    <div className="App">
-      <header>
-        <h1>Car Insurance Management App</h1>
-        <hr />
-        <NavBar />
-      </header>
-      <AppRouter />
-    </div>
-  );
-};
+const App = ({ auth, doLogin, doLogout }) => (
+  <div className="App">
+    <header>
+      <h1>Car Insurance Management App</h1>
+      <hr />
+      <NavBar doLogin={doLogin} doLogout={doLogout} auth={auth} />
+    </header>
+    <AppRouter />
+  </div>
+);
 
-export default Header;
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, { doLogin, doLogout })(App);
