@@ -8,8 +8,6 @@ import { connect } from "react-redux";
 const App = ({ auth, doLogin, doLogout }) => (
   <div className="App">
     <header>
-      <h1>Car Insurance Management App</h1>
-      <hr />
       <NavBar doLogin={doLogin} doLogout={doLogout} auth={auth} />
     </header>
     <AppRouter />

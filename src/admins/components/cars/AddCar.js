@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
-import CarContainer from "./CarContainer";
+import CarContainer from "../../../clients/components/cars/CarContainer";
+
+// Cars database manipulated just by admin, client will have to select car from 
+//list of cars given by site, if not on list can't assure it here or smth...
 
 const AddCar = () => {
   const [car, setCar] = useState({});

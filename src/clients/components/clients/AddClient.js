@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import AddCar from "../cars/AddCar";
+import AddCar from "../../../admins/components/cars/AddCar";
 import CarContainer from "../cars/CarContainer";
 
 const AddClient = () => {
