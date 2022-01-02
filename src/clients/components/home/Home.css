@@ -7,11 +7,11 @@
   text-align: left;
   background: url(./car.jpg);
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: right top;
 }
 
 .about-us b {
-  color: blue;
+  color: rgb(0, 0, 0);
 }
 
 .contact {
