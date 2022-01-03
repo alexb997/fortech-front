@@ -116,6 +116,13 @@ class NavBar extends React.Component {
                 </NavDropdown>
               </Nav>
               <Nav className="justify-content-end flex-grow-1 pe-3">
+                <NavDropdown title="Cars" id="basic-nav-dropdown">
+                  <NavDropdown.Item href="/cars">List</NavDropdown.Item>
+                  <NavDropdown.Item href="/addCar">Add</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                </NavDropdown>
+              </Nav>
+              <Nav className="justify-content-end flex-grow-1 pe-3">
                 <NavDropdown title="Insurance Plans" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/insurances">List</NavDropdown.Item>
                   <NavDropdown.Item href="/add-insurance-plan">

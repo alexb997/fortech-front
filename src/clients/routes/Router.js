@@ -8,6 +8,8 @@ import AssuranceCreator from "../../admins/components/assurances/AssuranceCreato
 import AssuranceList from "../../admins/components/assurances/AssuranceList";
 import Home from "../components/home/Home.js";
 import AddCar from "../../admins/components/cars/AddCar";
+import CarById from "../components/cars/CarById";
+import CarsList from "../components/cars/CarsList";
 
 function AppRouter() {
   return (
@@ -16,6 +18,8 @@ function AppRouter() {
         <Route path="/" element={<Home />} />
         <Route path="/insurances" element={<AssuranceList />} />
         <Route path="/addCar" element={<AddCar />} />
+        <Route path="/car/:id" element={<CarById />} />
+        <Route path="/cars" element={<CarsList />} />
         {/* <Route path="/assurance/:id" element={<AssurancePicker />} /> */}
         {/* <Route path="/update-assurance-plan/:id" element={<AssuranceUpdater />} /> */}
         <Route path="/add-insurance-plan" element={<AssuranceCreator />} />
