@@ -2,6 +2,8 @@ import { useEffect, useState, useHistory } from "react";
 import Alert from "react-bootstrap/Alert";
 import CarContainer from "./CarContainer";
 
+import "./Cars.css";
+
 function CarsList() {
   const [isLoading, setIsLoading] = useState(true);
   const [carsList, setCarsList] = useState([]);
@@ -11,6 +13,7 @@ function CarsList() {
   const [totalElements, setTotalElements] = useState();
   const [show, setShow] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
+  const [keyword, setKeyword] = useState("");
 
   useEffect(async () => {
     await fetch(
@@ -69,6 +72,30 @@ function CarsList() {
     setIsUpdating(true);
   };
 
+  const handleFilter = (keyword) => {
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    fetch(
+      "http://localhost:8080/cars/cars?page=" +
+        (currentPage - 1) +
+        "&size=" +
+        carsPerPage +
+        "&keyword=" +
+        keyword,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setCarsList(data.items);
+        setTotalPages(data.totalPages ? data.totalPages : 0);
+        setTotalElements(data.totalItems ? data.totalItems : 0);
+      });
+  };
+
   return (
     <div>
       <Alert show={show} variant="success">
@@ -80,6 +107,15 @@ function CarsList() {
           </button>
         </div>
       </Alert>
+      <input
+        type="text"
+        id="header-search"
+        placeholder="Search cars"
+        name="keyword"
+        onChange={(e) => setKeyword(e.target.value)}
+      />
+      <button onClick={() => handleFilter(keyword)}>Search</button>
+      <p></p>
       <p>
         Total Pages = {totalPages} with a total elements of {totalElements}
       </p>

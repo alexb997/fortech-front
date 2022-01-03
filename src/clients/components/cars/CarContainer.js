@@ -1,4 +1,4 @@
-import "./CarContainer.css";
+import "./Cars.css";
 
 const CarContainer = (props) => {
   return (

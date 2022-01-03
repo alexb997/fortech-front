@@ -12,7 +12,7 @@ function ClientsList() {
   const [totalElements, setTotalElements] = useState();
   const [show, setShow] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
-  const [username, setUsername] = useState("");
+  const [keyword, setKeyword] = useState("");
 
   useEffect(async () => {
     await fetch(
@@ -41,11 +41,35 @@ function ClientsList() {
     };
     fetch("http://localhost:8080/clients/clients/" + id, requestOptions).then(
       (response) => {
-        let updatedClients = clientsList.filter((i) => i.id !== id);
+        let updatedClients = clientsList;
         setClientsList(updatedClients);
         console.log(response);
       }
     );
+  };
+
+  const handleFilter = (keyword) => {
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    fetch(
+      "http://localhost:8080/clients/clients?page=" +
+        (currentPage - 1) +
+        "&size=" +
+        clientsPerPage +
+        "&keyword=" +
+        keyword,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setClientsList(data.items);
+        setTotalPages(data.totalPages ? data.totalPages : 0);
+        setTotalElements(data.totalItems ? data.totalItems : 0);
+      });
   };
 
   const prevPage = () => {
@@ -86,6 +110,17 @@ function ClientsList() {
           </button>
         </div>
       </Alert>
+      <label htmlFor="header-search">
+        <span className="visually-hidden">Search clients by keyword</span>
+      </label>
+      <input
+        type="text"
+        id="header-search"
+        placeholder="Search clients"
+        name="keyword"
+        onChange={(e) => setKeyword(e.target.value)}
+      />
+      <button onClick={() => handleFilter(keyword)}>Search</button>
       <p>
         Total Pages = {totalPages} with a total elements of {totalElements}
       </p>
@@ -96,7 +131,7 @@ function ClientsList() {
         clientsList.map((c, index) => (
           <div className="client-container" key={index}>
             <p>Username: {c.username}</p>
-            <p>Passowrd: {c.password}</p>
+            <p>Password: {c.password}</p>
             <p>Address: {c.address}</p>
             <p>Phone: {c.phone}</p>
             <p>
