@@ -1,7 +1,10 @@
 import { useEffect, useState, useHistory } from "react";
 import Alert from "react-bootstrap/Alert";
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
 
 import "./Clients.css";
+import ClientContainer from "./ClientContainer";
 
 function ClientsList() {
   const [isLoading, setIsLoading] = useState(true);
@@ -91,6 +94,7 @@ function ClientsList() {
   };
 
   const handleChange = (value) => {
+    setCurrentPage(1);
     setClientsPerPage(value);
     setIsUpdating(true);
   };
@@ -124,30 +128,26 @@ function ClientsList() {
       <p>
         Total Pages = {totalPages} with a total elements of {totalElements}
       </p>
-      <button>Delete All</button>
-      <h2>Pagination-Hard coded</h2>
+      {/* <button>Delete All</button> */}
       {isLoading && <p>Loading...</p>}
-      {clientsList.length != 0 ? (
-        clientsList.map((c, index) => (
-          <div className="client-container" key={index}>
-            <p>Username: {c.username}</p>
-            <p>Password: {c.password}</p>
-            <p>Address: {c.address}</p>
-            <p>Phone: {c.phone}</p>
-            <p>
-              Owned cars documented:{" "}
-              {c.ownedCars === null ? "0" : c.ownedCars.length}
-            </p>
-            <span classname="actions">
-              <button>Cars List</button>
-              {/* <button></button> */}
-              <button onClick={() => confirmRemoval(c.id)}>Delete</button>
-            </span>
-          </div>
-        ))
-      ) : (
-        <h3>No clients documented</h3>
-      )}
+      <Container>
+        <div className="row justify-content-center">
+          {clientsList.length != 0 ? (
+            clientsList.map((c, index) => (
+              <Col xs={6} md={4} key={index} className="client-item">
+                <ClientContainer client={c} />
+                <span classname="actions">
+                  <button>Cars List</button>
+                  {/* <button></button> */}
+                  <button onClick={() => confirmRemoval(c.id)}>Delete</button>
+                </span>
+              </Col>
+            ))
+          ) : (
+            <h3>No clients documented</h3>
+          )}
+        </div>
+      </Container>
       <span>
         <button onClick={() => prevPage()}>Prev..</button>
         <span>{currentPage}</span>
@@ -163,6 +163,7 @@ function ClientsList() {
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
+          <option value="4">4</option>
         </select>
         Out of {totalElements}
       </span>

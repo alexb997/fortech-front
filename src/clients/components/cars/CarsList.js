@@ -1,6 +1,8 @@
 import { useEffect, useState, useHistory } from "react";
 import Alert from "react-bootstrap/Alert";
 import CarContainer from "./CarContainer";
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
 
 import "./Cars.css";
 
@@ -68,6 +70,7 @@ function CarsList() {
   };
 
   const handleChange = (value) => {
+    setCurrentPage(1);
     setCarsPerPage(value);
     setIsUpdating(true);
   };
@@ -115,25 +118,28 @@ function CarsList() {
         onChange={(e) => setKeyword(e.target.value)}
       />
       <button onClick={() => handleFilter(keyword)}>Search</button>
-      <p></p>
       <p>
         Total Pages = {totalPages} with a total elements of {totalElements}
       </p>
       {/* <button>Delete All</button> */}
       {isLoading && <p>Loading...</p>}
-      {carsList.length != 0 ? (
-        carsList.map((c, index) => (
-          <div>
-            <CarContainer car={c} key={index} />
-            <span classname="actions">
-              <button onClick={() => confirmRemoval(c.id)}>Delete</button>
-            </span>
-            <hr />
-          </div>
-        ))
-      ) : (
-        <h3>No cars documented</h3>
-      )}
+      <Container>
+        <div className="row justify-content-center">
+          {carsList.length != 0 ? (
+            carsList.map((c, index) => (
+              <Col xs={6} md={4} key={index}>
+                <CarContainer car={c} />
+                <span className="car-actions">
+                  <button onClick={() => confirmRemoval(c.id)}>Delete</button>
+                </span>
+                <hr />
+              </Col>
+            ))
+          ) : (
+            <h3>No cars documented</h3>
+          )}
+        </div>
+      </Container>
       <span>
         <button onClick={() => prevPage()}>Prev..</button>
         <span>{currentPage}</span>
@@ -149,6 +155,7 @@ function CarsList() {
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
+          <option value="4">4</option>
         </select>
         Out of {totalElements}
       </span>

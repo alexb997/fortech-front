@@ -1,6 +1,13 @@
 .client-container {
-  margin: 1%;
   border: solid 1px;
+  border-radius: 20%;
+  background-color: white;
+}
+.client-item {
+  margin: 5%;
+  border: solid 1px;
+  border-radius: 20%;
+  background-color: rgb(80, 194, 77);
 }
 .visually-hidden {
   clip: rect(0 0 0 0);

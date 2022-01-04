@@ -2,13 +2,14 @@ import "./Cars.css";
 
 const CarContainer = (props) => {
   return (
-    <div className="car-container" key={props.key}>
-      {props.car.brand}
-      <h4>{props.VIN}</h4>
-      <p className="space-around">
-        <span>{props.car.kind}</span>
-        <span>{props.car.brand}</span>
-      </p>
+    <div className="car-container">
+      <div className="car-container-data">
+        <h4>{props.car.name}</h4>
+        <p className="info-column">
+          <span>{props.car.kind}</span>
+          <span>{props.car.brand}</span>
+        </p>
+      </div>
     </div>
   );
 };
