@@ -127,12 +127,11 @@ function CarsList() {
         <div className="row justify-content-center">
           {carsList.length != 0 ? (
             carsList.map((c, index) => (
-              <Col xs={6} md={4} key={index}>
+              <Col xs={6} md={4} key={index} className="car-element">
                 <CarContainer car={c} />
                 <span className="car-actions">
                   <button onClick={() => confirmRemoval(c.id)}>Delete</button>
                 </span>
-                <hr />
               </Col>
             ))
           ) : (

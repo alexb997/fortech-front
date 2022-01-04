@@ -1,8 +1,5 @@
 .car-container {
   text-align: center;
-  border-style: solid;
-  border-color: gray;
-  border-radius: 10%;
 }
 
 .info-column {
@@ -10,6 +7,11 @@
   flex-direction: column;
 }
 
-.cars-container {
+.car-container-data {
   align-items: center;
+}
+
+.car-element {
+  border: solid 1px;
+  border-radius: 20%;
 }
