@@ -2,14 +2,14 @@ import "./Cars.css";
 
 const CarContainer = (props) => {
   return (
-    <div className="card">
+    <div>
       <img
-        className="card-img-top"
-        src="https://www.321rentacar.ro/assets/themes/321rent5/img/321rentacar-inchirieri-auto.png"
+        className="car-img-top"
+        src="https://media-service.carmax.com/img/vehicles/21715785/1_cleaned.jpg"
         alt="Card image cap"
       />
-      <div className="car-container-data">
-        <h4 className="card-title">{props.car.name}</h4>
+      <div className="card-bloc">
+        <h4>{props.car.name}</h4>
         <p className="info-column">
           <span>{props.car.kind}</span>
           <span>{props.car.brand}</span>

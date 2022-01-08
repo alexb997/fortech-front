@@ -2,6 +2,7 @@ import { useEffect, useState, useHistory } from "react";
 import Alert from "react-bootstrap/Alert";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
+import { Button, Row } from "react-bootstrap";
 
 import "./Clients.css";
 import ClientContainer from "./ClientContainer";
@@ -131,22 +132,24 @@ function ClientsList() {
       {/* <button>Delete All</button> */}
       {isLoading && <p>Loading...</p>}
       <Container>
-        <div className="row justify-content-center">
+        <Row>
           {clientsList.length != 0 ? (
             clientsList.map((c, index) => (
               <Col xs={6} md={4} key={index} className="client-item">
                 <ClientContainer client={c} />
                 <span classname="actions">
-                  <button>Cars List</button>
+                  <Button variant="info">Cars List</Button>
                   {/* <button></button> */}
-                  <button onClick={() => confirmRemoval(c.id)}>Delete</button>
+                  <Button onClick={() => confirmRemoval(c.id)} variant="danger">
+                    Delete
+                  </Button>
                 </span>
               </Col>
             ))
           ) : (
             <h3>No clients documented</h3>
           )}
-        </div>
+        </Row>
       </Container>
       <span>
         <button onClick={() => prevPage()}>Prev..</button>

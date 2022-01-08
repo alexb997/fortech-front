@@ -1,8 +1,11 @@
 import { useEffect, useState, useHistory } from "react";
 import Alert from "react-bootstrap/Alert";
+import * as Icon from "react-bootstrap-icons";
+
 import CarContainer from "./CarContainer";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
+import { Button, Row } from "react-bootstrap";
 
 import "./Cars.css";
 
@@ -16,13 +19,16 @@ function CarsList() {
   const [show, setShow] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
   const [keyword, setKeyword] = useState("");
+  const [by, setBy] = useState("");
 
   useEffect(async () => {
     await fetch(
       "http://localhost:8080/cars/cars?page=" +
         (currentPage - 1) +
         "&size=" +
-        carsPerPage
+        carsPerPage +
+        (keyword === "" ? "" : "&keyword=" + keyword) +
+        (by === "" ? "" : "&by=" + by)
     )
       .then((response) => response.json())
       .then((data) => {
@@ -34,6 +40,8 @@ function CarsList() {
       })
       .catch((err) => console.log(err));
   }, [isUpdating]);
+
+  function setVisibility(zone) {}
 
   const confirmRemoval = (id) => {
     const requestOptions = {
@@ -69,13 +77,8 @@ function CarsList() {
     }
   };
 
-  const handleChange = (value) => {
-    setCurrentPage(1);
-    setCarsPerPage(value);
-    setIsUpdating(true);
-  };
-
   const handleFilter = (keyword) => {
+    setBy("");
     const requestOptions = {
       method: "GET",
       headers: {
@@ -89,6 +92,33 @@ function CarsList() {
         carsPerPage +
         "&keyword=" +
         keyword,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setCarsList(data.items);
+        setTotalPages(data.totalPages ? data.totalPages : 0);
+        setTotalElements(data.totalItems ? data.totalItems : 0);
+      });
+  };
+
+  const handleFilterBy = (keyword, setter) => {
+    setBy(setter);
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    fetch(
+      "http://localhost:8080/cars/cars?page=" +
+        (currentPage - 1) +
+        "&size=" +
+        carsPerPage +
+        "&keyword=" +
+        keyword +
+        "&by=" +
+        by,
       requestOptions
     )
       .then((response) => response.json())
@@ -123,21 +153,87 @@ function CarsList() {
       </p>
       {/* <button>Delete All</button> */}
       {isLoading && <p>Loading...</p>}
-      <Container>
-        <div className="row justify-content-center">
-          {carsList.length != 0 ? (
-            carsList.map((c, index) => (
-              <Col xs={6} md={4} key={index} className="car-element">
-                <CarContainer car={c} />
-                <span className="car-actions">
-                  <button onClick={() => confirmRemoval(c.id)}>Delete</button>
-                </span>
-              </Col>
-            ))
-          ) : (
-            <h3>No cars documented</h3>
-          )}
-        </div>
+      <Container fluid={true}>
+        <Row>
+          <Col sm={2} className="background-gray">
+            <h2>Search by:</h2>
+            <Row>
+              <Button onClick={() => setBy("type")}>
+                Type <Icon.ChevronRight />
+              </Button>
+              <Alert show={by === "type"}>
+                <input
+                  type="text"
+                  id="type-search"
+                  placeholder="Search cars"
+                  name="keyword"
+                  onChange={(e) => setKeyword(e.target.value)}
+                />
+                <button onClick={() => handleFilterBy(keyword, "type")}>
+                  Search
+                </button>
+              </Alert>
+              <hr />
+            </Row>
+            <Row>
+              <Button onClick={() => setBy("name")}>
+                Name <Icon.ChevronRight />
+              </Button>
+              <Alert show={by === "name"}>
+                <input
+                  type="text"
+                  id="title-search"
+                  placeholder="Search cars"
+                  name="keyword"
+                  onChange={(e) => setKeyword(e.target.value)}
+                />
+                <button onClick={() => handleFilterBy(keyword, "name")}>
+                  Search
+                </button>
+              </Alert>
+              <hr />
+            </Row>
+            <Row>
+              <Button onClick={() => setBy("brand")}>
+                Brand <Icon.ChevronRight />
+              </Button>
+              <Alert show={by === "brand"}>
+                <input
+                  type="text"
+                  id="brand-search"
+                  placeholder="Search cars"
+                  name="keyword"
+                  onChange={(e) => setKeyword(e.target.value)}
+                />
+                <button onClick={() => handleFilterBy(keyword, "brand")}>
+                  Search
+                </button>
+              </Alert>
+              <hr />
+            </Row>
+          </Col>
+          <Col sm={10}>
+            <Row>
+              {carsList.length != 0 ? (
+                carsList.map((c, index) => (
+                  <Col md={3} key={index} className="car-item">
+                    <CarContainer car={c} />
+                    <span className="car-actions">
+                      <Button
+                        onClick={() => confirmRemoval(c.id)}
+                        variant="danger"
+                      >
+                        Delete
+                      </Button>
+                    </span>
+                  </Col>
+                ))
+              ) : (
+                <h3>No cars documented</h3>
+              )}
+            </Row>
+          </Col>
+        </Row>
       </Container>
       <span>
         <button onClick={() => prevPage()}>Prev..</button>
@@ -145,18 +241,7 @@ function CarsList() {
         <button onClick={() => nextPage()}>Next..</button>
         <br />
         Out of {totalPages} pages
-        <br />
-        Cars per page:
-        <select
-          value={carsPerPage}
-          onChange={(e) => handleChange(e.target.value)}
-        >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
-        Out of {totalElements}
+        <br />A total of {totalElements} cars
       </span>
     </div>
   );
