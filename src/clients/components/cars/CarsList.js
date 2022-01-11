@@ -135,9 +135,9 @@ function CarsList() {
         <Alert.Heading>YOU SHALL NOT PASS!! </Alert.Heading>
         <hr />
         <div className="d-flex justify-content-end">
-          <button onClick={() => setShow(false)} variant="outline-success">
+          <Button onClick={() => setShow(false)} variant="outline-success">
             Got it
-          </button>
+          </Button>
         </div>
       </Alert>
       <input
@@ -147,11 +147,11 @@ function CarsList() {
         name="keyword"
         onChange={(e) => setKeyword(e.target.value)}
       />
-      <button onClick={() => handleFilter(keyword)}>Search</button>
+      <Button onClick={() => handleFilter(keyword)}>Search</Button>
       <p>
         Total Pages = {totalPages} with a total elements of {totalElements}
       </p>
-      {/* <button>Delete All</button> */}
+      {/* <Button>Delete All</Button> */}
       {isLoading && <p>Loading...</p>}
       <Container fluid={true}>
         <Row>
@@ -169,9 +169,9 @@ function CarsList() {
                   name="keyword"
                   onChange={(e) => setKeyword(e.target.value)}
                 />
-                <button onClick={() => handleFilterBy(keyword, "type")}>
+                <Button onClick={() => handleFilterBy(keyword, "type")}>
                   Search
-                </button>
+                </Button>
               </Alert>
               <hr />
             </Row>
@@ -187,9 +187,9 @@ function CarsList() {
                   name="keyword"
                   onChange={(e) => setKeyword(e.target.value)}
                 />
-                <button onClick={() => handleFilterBy(keyword, "name")}>
+                <Button onClick={() => handleFilterBy(keyword, "name")}>
                   Search
-                </button>
+                </Button>
               </Alert>
               <hr />
             </Row>
@@ -205,9 +205,9 @@ function CarsList() {
                   name="keyword"
                   onChange={(e) => setKeyword(e.target.value)}
                 />
-                <button onClick={() => handleFilterBy(keyword, "brand")}>
+                <Button onClick={() => handleFilterBy(keyword, "brand")}>
                   Search
-                </button>
+                </Button>
               </Alert>
               <hr />
             </Row>
@@ -236,9 +236,9 @@ function CarsList() {
         </Row>
       </Container>
       <span>
-        <button onClick={() => prevPage()}>Prev..</button>
+        <Button onClick={() => prevPage()}>Prev..</Button>
         <span>{currentPage}</span>
-        <button onClick={() => nextPage()}>Next..</button>
+        <Button onClick={() => nextPage()}>Next..</Button>
         <br />
         Out of {totalPages} pages
         <br />A total of {totalElements} cars

@@ -8,6 +8,7 @@ import {
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import * as Icon from "react-bootstrap-icons";
+import { Button } from "react-bootstrap";
 
 class NavBar extends React.Component {
   state = {
@@ -41,9 +42,14 @@ class NavBar extends React.Component {
                 Welcome <strong>{auth.username}</strong> |{" "}
               </span>
               &nbsp;
-              <button onClick={this.fakeLogout}>Logout</button>
+              <Button onClick={this.fakeLogout} variant="danger">
+                Logout
+              </Button>
             </div>
-            <Navbar.Toggle aria-controls="offcanvasNavbar" />
+            <div>
+              <Icon.PersonFill size={35} href="/profile" />
+              <Navbar.Toggle aria-controls="offcanvasNavbar" />
+            </div>
             <Navbar.Offcanvas
               id="offcanvasNavbar"
               aria-labelledby="offcanvasNavbarLabel"
@@ -92,11 +98,16 @@ class NavBar extends React.Component {
                 onChange={this.handleChange}
               />
               &nbsp; | &nbsp;
-              <button>Login</button> &nbsp;| &nbsp;
+              <Button variant="success">Login</Button> &nbsp;| &nbsp;
               <span>Not logged in</span>
             </form>
           </div>
-          <Navbar.Toggle aria-controls="offcanvasNavbar" />
+          <div>
+            <Navbar.Brand href="/profile">
+              <Icon.PersonFill size={37} />
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="offcanvasNavbar" />
+          </div>
           <Navbar.Offcanvas
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"

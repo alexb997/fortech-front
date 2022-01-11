@@ -10,6 +10,7 @@ import Home from "../components/home/Home.js";
 import AddCar from "../../admins/components/cars/AddCar";
 import CarById from "../components/cars/CarById";
 import CarsList from "../components/cars/CarsList";
+import Profile from "../components/profile/Profile";
 
 function AppRouter() {
   return (
@@ -17,6 +18,7 @@ function AppRouter() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/insurances" element={<AssuranceList />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/addCar" element={<AddCar />} />
         <Route path="/car/:id" element={<CarById />} />
         <Route path="/cars" element={<CarsList />} />
