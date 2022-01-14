@@ -2,80 +2,75 @@ function AboutUs() {
   return (
     <div className="about-us">
       <h3>
-        <b>Information needed for car insurance</b>
+        <b>Welcome to Home Page</b>
       </h3>
       <p>
-        Before you purchase a car or start driving, it's important to ask: what
-        do you need for car insurance?
+        Here i guess i'd put a little history of the company running the site,
+        for now lorem ipsum.
       </p>
       <p>
-        To start a new car insurance policy, you'll need to provide the
-        following:
-        <ul>
-          <li>Personal information</li>
-          <li>Information about your driving history</li>
-          <li>Vehicle information</li>
-          <li>Banking information</li>
-          <li>Supplemental information to qualify for discounts</li>
-        </ul>
+        Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in
+        laying out print, graphic or web designs. The passage is attributed to
+        an unknown typesetter in the 15th century who is thought to have
+        scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a
+        type specimen book. It usually begins with:
+      </p>
+      <p className="quote">
+        “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.”
       </p>
       <p>
-        <ul>
-          <li>
-            <b> Personal Information </b> <br />
-            <span>
-              You’ll need to provide the car insurance company with personal
-              information like your full name, date of birth, and address.
-              <br />
-              You’ll also need to provide your social security number, as most
-              companies will conduct a credit score check to determine your car
-              insurance rates. <br />
-              Providing your driver’s license number and state helps verify you
-              are legally able to drive, and it allows insurance companies to
-              review your driving history.
-            </span>
-          </li>
-          <li>
-            <b> Information About Your Driving History </b> <br />
-            <span>
-              You’ll answer questions about your driving history. The auto
-              insurance company will need to know about recent tickets or
-              citations, accidents, and any information about license
-              suspension.
-              <br />
-              Insurance companies mostly ask for a history of three to five
-              years, but this time frame will vary by state and provider. <br />
-            </span>
-          </li>
-          <li>
-            <b> Vehicle Information </b> <br />
-            <span>
-              You will then need to provide information about your car,
-              including the year, make, and model to the insurer. You’ll also be
-              asked for the vehicle identification number (VIN) "think to change
-              to plate number"{" "}
-              <b>Check this steps to fit the data-flow on this site.</b>
-              <br />
-              In addition to this information about your vehicle, you may also
-              be asked to provide:
-              <ul>
-                <li>Vehicle mileage</li>
-                <li>Address where the car is garaged</li>
-                <li>Name of the registered owner</li>
-                <li>Date of purchase</li>
-              </ul>
-              <br />
-              To qualify for discounts, you can gather information about safety
-              and security features installed on the car like anti-theft
-              devices, airbags, and more. <br /> To go on filling here go:
-              https://www.motor1.com/reviews/409155/what-do-you-need-for-car-insurance/
-            </span>
-          </li>
-        </ul>
+        The passage experienced a surge in popularity during the 1960s when
+        Letraset used it on their dry-transfer sheets, and again during the 90s
+        as desktop publishers bundled the text with their software. Today it's
+        seen all around the web; on templates, websites, and stock designs.
       </p>
       <p>
-        In the end i don't have any actual talent in design so have no idea how
-        this will look UI wise
+        Until recently, the prevailing view assumed lorem ipsum was born as a
+        nonsense text. “It's not Latin, though it looks like it, and it actually
+        says nothing,” Before and After magazine answered a curious reader, “Its
+        ‘words’ loosely approximate the frequency with which letters occur in
+        English, which is why at a glance it looks pretty real.”
+      </p>
+      <p>
+        As Cicero would put it, “Um, not so fast.”
+        <br />
+        The placeholder text, beginning with the line “Lorem ipsum dolor sit
+        amet, consectetur adipiscing elit”, looks like Latin because in its
+        youth, centuries ago, it was Latin.
+      </p>
+      <p>
+        Richard McClintock, a Latin scholar from Hampden-Sydney College, is
+        credited with discovering the source behind the ubiquitous filler text.
+        In seeing a sample of lorem ipsum, his interest was piqued by
+        consectetur—a genuine, albeit rare, Latin word. Consulting a Latin
+        dictionary led McClintock to a passage from De Finibus Bonorum et
+        Malorum (“On the Extremes of Good and Evil”), a first-century B.C. text
+        from the Roman philosopher Cicero.
+      </p>
+      <p className="white">
+        In particular, the garbled words of lorem ipsum bear an unmistakable
+        resemblance to sections 1.10.32–33 of Cicero's work, with the most
+        notable passage excerpted below:{" "}
+      </p>
+      <p className="quote-blue">
+        {" "}
+        “Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+        consectetur, adipisci velit, sed quia non numquam eius modi tempora
+        incidunt ut labore et dolore magnam aliquam quaerat voluptatem.”
+      </p>
+      <p className="white">
+        A 1914 English translation by Harris Rackham reads:
+      </p>
+      <p className="quote-blue">
+        “Nor is there anyone who loves or pursues or desires to obtain pain of
+        itself, because it is pain, but occasionally circumstances occur in
+        which toil and pain can procure him some great pleasure.”
+      </p>
+      <p className="white">
+        McClintock's eye for detail certainly helped narrow the whereabouts of
+        lorem ipsum's origin, however, the “how and when” still remain something
+        of a mystery, with competing theories and timelines.
       </p>
     </div>
   );

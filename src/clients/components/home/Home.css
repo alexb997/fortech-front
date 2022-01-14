@@ -1,17 +1,36 @@
 .home {
   flex-direction: column;
   justify-content: space-between;
+  background-image: url(./homebase-tablet.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .about-us {
-  text-align: left;
-  background: url(./car.jpg);
-  background-repeat: no-repeat;
-  background-position: right top;
+  margin-bottom: 5%;
 }
 
-.about-us b {
+.guide {
+  text-align: left;
+}
+
+.guide b {
   color: rgb(0, 0, 0);
+}
+
+.white {
+  color: white;
+}
+
+.quote {
+  font-size: large;
+  font-style: italic;
+  color: gray;
+}
+.quote-blue {
+  font-size: large;
+  font-style: italic;
+  color: blue;
 }
 
 .contact {

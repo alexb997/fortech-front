@@ -1,21 +1,13 @@
 import React, { useState } from "react";
 import AppRouter from "./clients/routes/Router";
 import { doLogin, doLogout } from "./actions/auth";
-import NavBar from "./navigation/navBar";
 import "./App.css";
 import { connect } from "react-redux";
 
-const App = ({ auth, doLogin, doLogout }) => (
+const App = () => (
   <div className="App">
-    <header>
-      <NavBar doLogin={doLogin} doLogout={doLogout} auth={auth} />
-    </header>
     <AppRouter />
   </div>
 );
 
-const mapStateToProps = (state) => ({
-  auth: state.auth,
-});
-
-export default connect(mapStateToProps, { doLogin, doLogout })(App);
+export default App;
