@@ -8,7 +8,11 @@ import {
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import * as Icon from "react-bootstrap-icons";
-import { Button } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
+import logo from "./car-logo.png";
+
+import "./navBar.css";
+import { icon } from "@fortawesome/fontawesome-svg-core";
 
 class NavBar extends React.Component {
   state = {
@@ -30,55 +34,53 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <Navbar className="navbar" expand={false}>
-        <Container fluid>
-          <Navbar.Brand href="/">
-            <Icon.HouseFill size={37} />
-          </Navbar.Brand>
-          <div>
-            <span>
-              Welcome <strong>Alex</strong> |{" "}
+      <Col>
+        <Row>
+          <Navbar sticky="top" className="navbar" expand={false}>
+            <Container fluid>
+              <Navbar.Brand href="/">
+                <img
+                  src={logo}
+                  width="90"
+                  height="50"
+                  className="d-inline-block align-top"
+                />
+              </Navbar.Brand>
+              <Nav className="me-auto nav-zone">
+                <Nav.Link href="/cars">
+                  <span className="link-blue">Cars</span>
+                </Nav.Link>
+                <Nav.Link href="/insurances">
+                  <span className="link-blue">Assurances</span>
+                </Nav.Link>
+                <Nav.Link href="/clients">
+                  <span className="link-blue">Clients</span>
+                </Nav.Link>
+                <Nav.Link href="/admin">
+                  <span className="link-blue">Admin</span>
+                </Nav.Link>
+              </Nav>
+              <div>
+                <Nav.Link href="/profile/alex">
+                  <Icon.HeartFill size={22} color="red" />
+                  <Icon.PersonFill size={30} />
+                </Nav.Link>
+                {/* <Navbar.Toggle aria-controls="offcanvasNavbar" /> */}
+              </div>
+            </Container>
+          </Navbar>
+        </Row>
+        <Row>
+          <div class="input-group">
+            <input type="search" class="form-control" placeholder="search..." />
+            <span class="input-group-addon input-group-addon-btn bg-white">
+              <button class="btn px-2" type="submit">
+                <Icon.Search />
+              </button>
             </span>
-            &nbsp;
-            <Button onClick={this.fakeLogout} variant="danger">
-              Logout
-            </Button>
           </div>
-          <div>
-            <Icon.PersonFill size={35} href="/profile" />
-            <Navbar.Toggle aria-controls="offcanvasNavbar" />
-          </div>
-          <Navbar.Offcanvas
-            id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel"
-            placement="end"
-          >
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title id="offcanvasNavbarLabel">
-                Routing
-              </Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-              <Nav className="justify-content-end flex-grow-1 pe-3">
-                <NavDropdown title="Clients" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/clients">List</NavDropdown.Item>
-                  <NavDropdown.Item href="/clients/add">Add</NavDropdown.Item>
-                  <NavDropdown.Divider />
-                </NavDropdown>
-              </Nav>
-              <Nav className="justify-content-end flex-grow-1 pe-3">
-                <NavDropdown title="Insurance Plans" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/insurances">List</NavDropdown.Item>
-                  <NavDropdown.Item href="/add-insurance-plan">
-                    Add
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                </NavDropdown>
-              </Nav>
-            </Offcanvas.Body>
-          </Navbar.Offcanvas>
-        </Container>
-      </Navbar>
+        </Row>
+      </Col>
     );
   }
 

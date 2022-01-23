@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import NavBar from "../../../navigation/navBar";
 
 function UpdateClient() {
   const { id } = useParams();
@@ -50,6 +51,7 @@ function UpdateClient() {
 
   return (
     <div>
+      <NavBar />
       <h3>Updating client:</h3>
       {isLoading && <p>Loading...</p>}
       <span>Username: {client.username}</span>

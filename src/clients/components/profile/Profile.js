@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
+import NavBar from "../../../navigation/navBar";
 
 function Profile() {
   const { username } = useParams();
@@ -25,6 +26,7 @@ function Profile() {
 
   return (
     <Container>
+      <NavBar />
       <Col>
         <Row>
           <Icon.PersonFill size={50} />

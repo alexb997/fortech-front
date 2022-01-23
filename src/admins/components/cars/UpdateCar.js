@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import CarContainer from "./CarContainer";
+import NavBar from "../../../navigation/navBar";
 
 function UpdateCar() {
   const { id } = useParams();
@@ -45,6 +46,7 @@ function UpdateCar() {
 
   return (
     <div>
+      <NavBar />
       <h3>Car before update</h3>
       {isLoading && <p>Loading...</p>}
       <CarContainer car={car} />

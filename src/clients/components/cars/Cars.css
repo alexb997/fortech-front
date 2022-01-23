@@ -7,8 +7,15 @@
   border: solid 1px;
 }
 
-.background-gray {
-  background-color: gray;
+.list-zone {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.border-right {
+  padding-right: 1%;
+  border-right: gray solid 1px;
 }
 
 .car-img-top {
@@ -31,4 +38,9 @@
 
 .filter-input-block {
   display: block;
+}
+
+.reset-button {
+  color: blue;
+  cursor: pointer;
 }

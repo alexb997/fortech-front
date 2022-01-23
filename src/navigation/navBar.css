@@ -1,3 +1,17 @@
-.navbar {
-  background-color: transparent;
+.nav-zone {
+  display: flex;
+  flex-direction: row;
+  gap: 7%;
+}
+.link-blue {
+  color: blue;
+}
+.input-group-addon-btn {
+  padding: 0;
+  border-radius: 20%;
+}
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }

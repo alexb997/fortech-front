@@ -3,6 +3,7 @@ import Alert from "react-bootstrap/Alert";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import { Button, Row } from "react-bootstrap";
+import NavBar from "../../../navigation/navBar";
 
 import "./Clients.css";
 import ClientContainer from "./ClientContainer";
@@ -101,7 +102,8 @@ function ClientsList() {
   };
 
   return (
-    <div>
+    <div className="list-page">
+      <NavBar />
       <Alert show={show} variant="success">
         <Alert.Heading>YOU SHALL NOT PASS!! </Alert.Heading>
         <p>

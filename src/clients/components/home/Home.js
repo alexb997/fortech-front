@@ -1,12 +1,14 @@
 import AboutUs from "./AboutUs";
 import Guide from "./Guide";
 import Contact from "./Contact";
+import Recommended from "./Recommended";
 import NavBar from "../../../navigation/navBar";
 
 import "./Home.css";
 import "../../../../node_modules/react-image-gallery/styles/css/image-gallery.css";
 import { Container } from "react-bootstrap";
 import ImageGallery from "react-image-gallery";
+import FindCar from "./FindCar";
 
 function Home() {
   const images = [
@@ -28,7 +30,9 @@ function Home() {
       <Container>
         <NavBar />
         <AboutUs />
+        <FindCar />
         <Guide />
+        <Recommended />
         <ImageGallery items={images} />
         <Contact />
       </Container>

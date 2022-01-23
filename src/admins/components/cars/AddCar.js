@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import CarContainer from "../../../clients/components/cars/CarContainer";
+import NavBar from "../../../navigation/navBar";
 
 // Cars database manipulated just by admin, client will have to select car from
 //list of cars given by site, if not on list can't assure it here or smth...
@@ -38,6 +39,7 @@ const AddCar = () => {
 
   return (
     <div>
+      <NavBar />
       <h3>Input form</h3>
       <form
         onSubmit={(e) => {

@@ -6,13 +6,14 @@ import CarContainer from "./CarContainer";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import { Button, Row } from "react-bootstrap";
+import NavBar from "../../../navigation/navBar";
 
 import "./Cars.css";
 
 function CarsList() {
   const [isLoading, setIsLoading] = useState(true);
   const [carsList, setCarsList] = useState([]);
-  const [carsPerPage, setCarsPerPage] = useState(2);
+  const [carsPerPage, setCarsPerPage] = useState(7);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState();
   const [totalElements, setTotalElements] = useState();
@@ -130,7 +131,8 @@ function CarsList() {
   };
 
   return (
-    <div>
+    <div className="cars-list">
+      <NavBar />
       <Alert show={show} variant="success">
         <Alert.Heading>YOU SHALL NOT PASS!! </Alert.Heading>
         <hr />
@@ -148,14 +150,19 @@ function CarsList() {
         onChange={(e) => setKeyword(e.target.value)}
       />
       <Button onClick={() => handleFilter(keyword)}>Search</Button>
-      <p>
-        Total Pages = {totalPages} with a total elements of {totalElements}
-      </p>
       {/* <Button>Delete All</Button> */}
       {isLoading && <p>Loading...</p>}
-      <Container fluid={true}>
+      <Container fluid={true} className="list-zone">
         <Row>
-          <Col sm={2} className="background-gray">
+          <Col sm={2} className="border-right">
+            <p style={{ "text-align": "right" }}>
+              <small>
+                Reset the:{" "}
+                <u className="reset-button" onClick={() => handleFilterBy("")}>
+                  filters
+                </u>
+              </small>
+            </p>
             <h2>Search by:</h2>
             <Row>
               <Button onClick={() => setBy("type")}>
@@ -214,6 +221,9 @@ function CarsList() {
           </Col>
           <Col sm={10}>
             <Row>
+              <p style={{ textAlign: "left" }}>
+                {totalElements} matching results
+              </p>
               {carsList.length != 0 ? (
                 carsList.map((c, index) => (
                   <Col md={3} key={index} className="car-item">
@@ -241,7 +251,6 @@ function CarsList() {
         <Button onClick={() => nextPage()}>Next..</Button>
         <br />
         Out of {totalPages} pages
-        <br />A total of {totalElements} cars
       </span>
     </div>
   );

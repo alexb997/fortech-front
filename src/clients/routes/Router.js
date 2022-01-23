@@ -11,6 +11,7 @@ import AddCar from "../../admins/components/cars/AddCar";
 import CarById from "../components/cars/CarById";
 import CarsList from "../components/cars/CarsList";
 import Profile from "../components/profile/Profile";
+import Admin from "../../admins/admin";
 
 function AppRouter() {
   return (
@@ -19,9 +20,10 @@ function AppRouter() {
         <Route path="/" element={<Home />} />
         <Route path="/insurances" element={<AssuranceList />} />
         <Route path="/profile/:username" element={<Profile />} />
-        <Route path="/addCar" element={<AddCar />} />
+        <Route path="/cars/add" element={<AddCar />} />
         <Route path="/car/:id" element={<CarById />} />
         <Route path="/cars" element={<CarsList />} />
+        <Route path="/admin" element={<Admin />} />
         {/* <Route path="/assurance/:id" element={<AssurancePicker />} /> */}
         {/* <Route path="/update-assurance-plan/:id" element={<AssuranceUpdater />} /> */}
         <Route path="/add-insurance-plan" element={<AssuranceCreator />} />

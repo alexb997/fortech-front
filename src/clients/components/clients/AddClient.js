@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AddCar from "../../../admins/components/cars/AddCar";
 import CarContainer from "../cars/CarContainer";
+import NavBar from "../../../navigation/navBar";
 
 const AddClient = () => {
   const [client, setClient] = useState({});
@@ -63,6 +64,7 @@ const AddClient = () => {
 
   return (
     <div>
+      <NavBar />
       <h3>Input form</h3>
       <form
         onSubmit={(e) => {
