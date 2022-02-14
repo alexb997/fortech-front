@@ -53,8 +53,8 @@ class NavBar extends React.Component {
                 <Nav.Link href="/insurances">
                   <span className="link-blue">Assurances</span>
                 </Nav.Link>
-                <Nav.Link href="/clients">
-                  <span className="link-blue">Clients</span>
+                <Nav.Link href="/finances">
+                  <span className="link-blue">Finances</span>
                 </Nav.Link>
                 <Nav.Link href="/admin">
                   <span className="link-blue">Admin</span>

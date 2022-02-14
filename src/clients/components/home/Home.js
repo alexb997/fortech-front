@@ -1,6 +1,5 @@
 import AboutUs from "./AboutUs";
 import Guide from "./Guide";
-import Contact from "./Contact";
 import Recommended from "./Recommended";
 import NavBar from "../../../navigation/navBar";
 
@@ -34,7 +33,6 @@ function Home() {
         <Guide />
         <Recommended />
         <ImageGallery items={images} />
-        <Contact />
       </Container>
     </div>
   );

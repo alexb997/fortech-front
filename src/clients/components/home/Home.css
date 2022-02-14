@@ -56,3 +56,13 @@
   background-color: white;
   border-radius: 20%;
 }
+
+.carousel-icons {
+  width: 50%;
+  height: 30%;
+}
+
+.footer {
+  color: white;
+  background-color: rgba(11, 98, 185, 255);
+}

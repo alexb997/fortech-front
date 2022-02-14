@@ -1,0 +1,59 @@
+.blue {
+  color: white;
+  background-color: rgba(11, 98, 185, 255);
+}
+
+.blue-text {
+  color: rgba(11, 98, 185, 255);
+}
+
+.carousel-blue {
+  padding: 5%;
+  text-align: center;
+  color: white;
+}
+
+.centered {
+  text-align: center;
+  font-weight: bolder;
+}
+
+.picture-zone {
+  text-align: center;
+  flex-direction: column;
+  background-image: url(https://www.carmax.com/pre-qual/images/finance-hero-desktop.jpg);
+  height: 60vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.picture-title {
+  font-size: 200%;
+  color: white;
+  margin-bottom: 2%;
+}
+
+.picture-button {
+  width: 10%;
+  border-radius: 30%;
+  font-size: 150%;
+}
+
+.text-subtitle {
+  font-size: xx-large;
+}
+
+.relative-position {
+  position: relative;
+  top: 50%;
+}
+
+.info-zone {
+  text-align: center;
+  height: 120vh;
+  background-color: aqua;
+}
+
+.empty {
+  height: 10vh;
+}
