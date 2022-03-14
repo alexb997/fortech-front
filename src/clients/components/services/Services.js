@@ -1,4 +1,4 @@
-import { Col, Container, Row, Button } from "react-bootstrap";
+import { Col, Container, Row, Button, Card } from "react-bootstrap";
 import VisitForRepairs from "./VisitForRepairs";
 import YouHaveOptions from "./YouHaveOptions";
 import { useState } from "react";
@@ -18,8 +18,53 @@ function Services() {
       <QuickScroll />
 
       <div className="empty"></div>
-      <Container fluid>
-        <img src={image} style={{ "margin-left": "5%" }} />
+      <Container>
+        <Row className="justify-content-md-center">
+          <Col md="auto">
+            <h2>
+              <b>CarTalk customers get great benefits</b>
+            </h2>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Card style={{ width: "18rem" }} className="border-0">
+              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col>
+            <Card style={{ width: "18rem" }} className="border-0">
+              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col>
+            <Card style={{ width: "18rem" }} className="border-0">
+              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+        {/* <img src={image} /> */}
       </Container>
 
       <div className="empty"></div>
