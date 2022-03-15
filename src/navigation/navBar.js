@@ -34,7 +34,7 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <Col>
+      <Container fluid>
         <Row>
           <Navbar sticky="top" className="navbar" expand={false}>
             <Container fluid>
@@ -80,7 +80,7 @@ class NavBar extends React.Component {
             </span>
           </div>
         </Row>
-      </Col>
+      </Container>
     );
   }
 
