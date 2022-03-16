@@ -84,8 +84,30 @@ function Services() {
       </Container>
 
       <div className="empty"></div>
-      <Container fluid>
-        <img src={tep} style={{ "margin-left": "10%" }} />
+      <Container>
+        <Row className="align-items-center">
+          <Col>
+            <img src="https://www.carmax.com/home/images/service/upfront-fair-color-block.jpg"></img>
+          </Col>
+          <Col className="text-zone">
+            <b>
+              <p className="text-subtitle blue-text">Upfront and fair</p>
+            </b>
+            <p>Know what you'll pay before the work is done.</p>
+          </Col>
+        </Row>
+        <div className="empty"></div>
+        <Row className="align-items-center">
+          <Col>
+            <img src="https://www.carmax.com/home/images/service/upfront-fair-color-block.jpg"></img>
+          </Col>
+          <Col className="text-zone">
+            <b>
+              <p className="text-subtitle blue-text">Upfront and fair</p>
+            </b>
+            <p>Know what you'll pay before the work is done.</p>
+          </Col>
+        </Row>
       </Container>
     </div>
   );

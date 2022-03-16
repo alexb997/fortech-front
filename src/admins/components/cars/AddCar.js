@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import CarContainer from "../../../clients/components/cars/CarContainer";
 import NavBar from "../../../navigation/navBar";
-import { AdvancedImage } from "@cloudinary/react";
-import { Cloudinary } from "@cloudinary/url-gen";
-import { Transformation } from "@cloudinary/url-gen";
 
 // Cars database manipulated just by admin, client will have to select car from
 //list of cars given by site, if not on list can't assure it here or smth...
@@ -27,24 +24,7 @@ const AddCar = () => {
 
   const files = document.querySelector("[type=file]").files;
   const formData = new FormData();
-
-  for (let i = 0; i < files.length; i++) {
-    let file = files[i];
-    formData.append("file", file);
-    formData.append("upload_preset", "docs_upload_example_us_preset");
-
-    fetch(url, {
-      method: "POST",
-      body: formData
-    })
-      .then((response) => {
-        return response.text();
-      })
-      .then((data) => {
-        document.getElementById("data").innerHTML += data;
-      });
-  }
-});
+};
 
 
 
